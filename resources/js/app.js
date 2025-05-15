@@ -1,0 +1,31 @@
+import './bootstrap';
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('valor').addEventListener('input', function (e) {
+        let valor = e.target.value;
+        valor = valor.replace(/\D/g, '');
+        if (valor != '') {
+            valor = (parseInt(valor, 10) / 100).toFixed(2);
+            valor = valor.replace('.', ',');
+            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        e.target.value = valor;
+    });
+
+    document.getElementById('anoPublicacao').addEventListener('input', function (e) {
+        let valor = e.target.value;
+        valor = valor.replace(/\D/g, '');
+        if (valor.length > 4) {
+            valor = valor.slice(0, 4);
+        }
+        e.target.value = valor;
+        debugger;
+        const anoAtual = new Date().getFullYear();
+        if (valor && parseInt(valor) > anoAtual) {
+            this.setCustomValidity(`O ano não pode ser maior que ${anoAtual}.`);
+            this.reportValidity();
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+});

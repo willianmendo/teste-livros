@@ -10,7 +10,7 @@ Projeto desenvolvido com **PHP 8.3**, **Laravel 12**, **Vite** e **Bootstrap**, 
 - **Laravel 12**
 - **Vite** (para assets frontend)
 - **Bootstrap 5**
-- **MySQL** ou outro banco de sua preferência
+- **MySQL** 
 
 ---
 
@@ -33,17 +33,13 @@ Antes de iniciar, verifique se você tem instalado:
 - PHP 8.3
 - Composer
 - Node.js e npm
-- Make (no Linux ou WSL, ou configure make no Windows)
+- Make
 
 ---
 
 ## 📦 Instalação
 
 ```bash
-# Clone o repositório
-git clone https://gitlab.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
-
 # Instale as dependências do PHP
 composer install
 

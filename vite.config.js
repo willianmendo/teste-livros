@@ -11,6 +11,6 @@ export default defineConfig({
         tailwindcss(),
     ],
     optimizeDeps: {
-        include: ['jquery'],
+        include: ['jquery', 'select2'],
     },
 });

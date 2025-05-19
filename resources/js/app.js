@@ -28,4 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
             this.setCustomValidity('');
         }
     });
+
+    $('.select2').select2({
+        theme: 'bootstrap-5',
+        placeholder: 'Selecione uma opção',
+        width: '100%' 
+    });
 });

@@ -57,7 +57,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="autores" class="form-label">Autores</label>
-                            <select name="autores[]" id="autores" class="form-select" multiple required>
+                            <select name="autores[]" id="autores" class="form-select select2" multiple required>
                                 @foreach ($autores as $autor)
                                     <option value="{{ $autor->codAu }}" @if (!empty($livro) && $livro->autores->contains($autor->codAu)) selected @endif>
                                         {{ $autor->nome }}

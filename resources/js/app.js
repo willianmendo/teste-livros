@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
     });
 
+    $('#tabela-autores').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+        },
+        pageLength: 10,
+        order: [[0, 'asc']],
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+
     document.getElementById('valor').addEventListener('input', function (e) {
         let valor = e.target.value;
         valor = valor.replace(/\D/g, '');

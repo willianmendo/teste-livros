@@ -28,7 +28,7 @@ class Autores
             return $query->where('nome', 'like', '%' . $busca . '%');
         })
             ->orderBy('codAu')
-            ->paginate(10)
+            ->paginate()
             ->withQueryString();
 
         return $assuntos;

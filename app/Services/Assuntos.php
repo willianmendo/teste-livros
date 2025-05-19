@@ -28,7 +28,7 @@ class Assuntos
             return $query->where('descricao', 'like', '%' . $busca . '%');
         })
             ->orderBy('codAs')
-            ->paginate(10)
+            ->paginate()
             ->withQueryString();
 
         return $assuntos;

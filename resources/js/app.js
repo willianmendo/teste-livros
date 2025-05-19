@@ -1,6 +1,18 @@
 import './bootstrap';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    $('#tabela-assuntos').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+        },
+        pageLength: 10,
+        order: [[0, 'asc']],
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+
     document.getElementById('valor').addEventListener('input', function (e) {
         let valor = e.target.value;
         valor = valor.replace(/\D/g, '');
@@ -32,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.select2').select2({
         theme: 'bootstrap-5',
         placeholder: 'Selecione uma opção',
-        width: '100%' 
+        width: '100%'
     });
+
+    
 });

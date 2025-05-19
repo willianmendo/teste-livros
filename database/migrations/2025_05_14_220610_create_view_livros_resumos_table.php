@@ -10,7 +10,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("
+
+        $driver = DB::getDriverName();
+
+        if ($driver == 'pgsql') {
+            DB::statement("
             CREATE VIEW view_livros_resumo AS
                 SELECT 
                     autor.codAu,
@@ -23,6 +27,26 @@ return new class extends Migration
                 JOIN autor ON autor.codAu = livro_autor.autor_codAu
                 GROUP BY autor.codAu, autor.nome;
         ");
+        } else {
+            DB::statement("
+                CREATE VIEW view_livros_resumo AS
+                SELECT 
+                    a.codAu,
+                    a.nome AS autor_nome,
+                    COUNT(DISTINCT l.codL) AS total_livros,
+                    SUM(l.valor) AS soma_valores,
+                    (
+                        SELECT GROUP_CONCAT(DISTINCT l2.titulo, ', ')
+                        FROM livro l2
+                        JOIN livro_autor la2 ON la2.livro_codL = l2.codL
+                        WHERE la2.autor_codAu = a.codAu AND l2.titulo != ''
+                    ) AS titulos
+                FROM autor a
+                JOIN livro_autor la ON la.autor_codAu = a.codAu
+                JOIN livro l ON l.codL = la.livro_codL
+                GROUP BY a.codAu, a.nome;
+            ");
+        }
     }
 
     /**

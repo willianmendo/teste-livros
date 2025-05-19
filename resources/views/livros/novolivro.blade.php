@@ -40,7 +40,7 @@
                         <div class="col-md-2">
                             <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
                             <input type="text" name="anoPublicacao" id="anoPublicacao" class="form-control"
-                                pattern="\d{1,4}" maxlength="4" title="Digite até 4 números"
+                                pattern="\d{1,4}" maxlength="4" title="Digite o ano de publicação"
                                 value="{{ old('anoPublicacao', $livro->anoPublicacao ?? '') }}" required>
                         </div>
                         <div class="col-md-6">

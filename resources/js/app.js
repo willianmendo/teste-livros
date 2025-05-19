@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
             valor = valor.slice(0, 4);
         }
         e.target.value = valor;
-        debugger;
         const anoAtual = new Date().getFullYear();
         if (valor && parseInt(valor) > anoAtual) {
             this.setCustomValidity(`O ano não pode ser maior que ${anoAtual}.`);
@@ -63,11 +62,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    document.getElementById('edicao').addEventListener('input', function (e) {
+        let valor = e.target.value;
+        valor = valor.replace(/\D/g, '');
+        if (valor.length > 10) {
+            valor = valor.slice(0, 10);
+        }
+        e.target.value = valor;
+    });
+
     $('.select2').select2({
         theme: 'bootstrap-5',
         placeholder: 'Selecione uma opção',
         width: '100%'
     });
-
-    
 });

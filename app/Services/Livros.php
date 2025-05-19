@@ -39,7 +39,7 @@ class Livros
                 });
         })
             ->orderBy('codL')
-            ->paginate(10)
+            ->paginate()
             ->withQueryString();
 
         return $livros;

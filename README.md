@@ -46,9 +46,6 @@ composer install
 # Instale as dependências do frontend
 npm install
 
-# Copie o arquivo de ambiente
-cp .env.example .env
-
 # Gere a chave da aplicação
 php artisan key:generate
 

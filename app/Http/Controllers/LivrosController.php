@@ -77,6 +77,7 @@ class LivrosController extends Controller
         }
         $autores = $this->serviceAutores->get();
         $assuntos = $this->serviceAssuntos->get();
+        // dd($livro);
         return view('livros.novolivro', ['livro' => $livro, 'autores' => $autores, 'assuntos' => $assuntos]);
     }
 

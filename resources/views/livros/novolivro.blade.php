@@ -49,7 +49,7 @@
                                 <option value="">Selecione o assunto</option>
                                 @foreach ($assuntos as $assunto)
                                     <option value="{{ old('assunto_codAs', $assunto->codAs ?? '') }}"
-                                        @if (!empty($livro) && $livro->assunto->codAl == $assunto->codAl) selected @endif>{{ $assunto->descricao }}</option>
+                                        @if (!empty($livro) && $livro->assunto->codAs == $assunto->codAs) selected @endif>{{ $assunto->descricao }}</option>
                                 @endforeach
                             </select>
                         </div>

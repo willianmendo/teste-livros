@@ -18,7 +18,7 @@ class Livros
      */
     public function getById(int $codL)
     {
-        return ModelLivro::where('codL', $codL)->firstOrFail();
+        return ModelLivro::with(['autores', 'assunto'])->where('codL', $codL)->firstOrFail();
     }
 
     /**
